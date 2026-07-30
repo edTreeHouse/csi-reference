@@ -1,0 +1,29 @@
+{
+  "title": "CSI Reference, Edition 0.1",
+  "description": "The initial ten-article scholarly reference architecture for Collective-State Inference (CSI), including canonical definitions, methodological principles, systems concepts, scholarly provenance, citation verification, and governance records. Edition 0.1 is a foundational conceptual release that has not yet completed peer review or empirical validation.",
+  "creators": [
+    {
+      "name": "Clark, Edward D."
+    }
+  ],
+  "version": "0.1",
+  "publication_date": "2026-07-30",
+  "license": "cc-by-nc-4.0",
+  "access_right": "open",
+  "upload_type": "publication",
+  "publication_type": "other",
+  "keywords": [
+    "Collective-State Inference",
+    "collective awareness",
+    "emergent collective conditions",
+    "multilevel theory",
+    "human-AI systems"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://collectivestateinference.org/reference/",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
