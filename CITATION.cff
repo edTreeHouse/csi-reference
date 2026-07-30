@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "Please cite this archival release using the metadata below."
+title: "CSI Reference, Edition 0.1"
+type: dataset
+authors:
+  - family-names: Clark
+    given-names: Edward D.
+version: "0.1"
+date-released: 2026-07-30
+url: "https://collectivestateinference.org/reference/"
+repository-code: "https://github.com/edTreeHouse/csi-reference"
+abstract: >-
+  The initial ten-article reference architecture for Collective-State Inference,
+  including canonical definitions, methodological principles, systems concepts,
+  scholarly provenance, citation verification, and governance records.
+keywords:
+  - Collective-State Inference
+  - collective awareness
+  - emergent collective conditions
+  - multilevel theory
+  - human-AI systems
+license: CC-BY-NC-4.0
+contact:
+  - email: ed@collectivestateinference.org
