@@ -1,8 +1,17 @@
 # CSI Reference — Edition 0.1
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21701697.svg)](https://doi.org/10.5281/zenodo.21701697)
+
 Canonical, versioned scholarly reference for Collective-State Inference (CSI).
 
 This public repository preserves the fixed Edition 0.1 scholarly record corresponding to the living CSI Reference at https://collectivestateinference.org/reference/.
+
+## Archived release
+
+- **DOI:** [10.5281/zenodo.21701697](https://doi.org/10.5281/zenodo.21701697)
+- **Git tag:** `csi-reference-edition-0.1`
+- **Release date:** July 30, 2026
+- **License:** CC BY-NC 4.0 for original CSI scholarly content
 
 ## Included materials
 
@@ -27,6 +36,6 @@ Original CSI Reference scholarly content is licensed under the Creative Commons 
 
 ## Citation
 
-Clark, E. D. (2026). *CSI Reference, Edition 0.1*. Collective-State Inference Research Program.
+Clark, E. D. (2026). *CSI Reference, Edition 0.1*. Collective-State Inference Research Program. https://doi.org/10.5281/zenodo.21701697
 
-A DOI will be added after the first Zenodo archival deposit is completed.
+The tagged GitHub release and Zenodo record are the fixed archival objects. Subsequent changes to `main` document metadata, corrections, or later editions without altering the preserved Edition 0.1 release.

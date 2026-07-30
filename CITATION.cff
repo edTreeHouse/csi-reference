@@ -5,6 +5,7 @@ type: dataset
 authors:
   - family-names: Clark
     given-names: Edward D.
+doi: 10.5281/zenodo.21701697
 version: "0.1"
 date-released: 2026-07-30
 url: "https://collectivestateinference.org/reference/"
