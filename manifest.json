@@ -1,0 +1,114 @@
+{
+  "release": "CSI Reference Edition 0.1",
+  "edition": "0.1",
+  "release_date": "2026-07-30",
+  "author": "Edward D. Clark",
+  "publisher": "Collective-State Inference Research Program",
+  "canonical_reference": "https://collectivestateinference.org/reference/",
+  "license": "CC BY-NC 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "research_status": "foundational conceptual release; not yet peer reviewed or empirically validated",
+  "doi": null,
+  "article_versions": {
+    "RA-001": "0.2",
+    "RA-002": "0.2",
+    "RA-003": "0.2",
+    "RA-004": "0.2",
+    "RA-005": "0.2",
+    "RA-006": "0.2",
+    "RA-007": "0.2",
+    "RA-008": "0.2",
+    "RA-009": "0.2",
+    "RA-010": "0.2"
+  },
+  "files": [
+    {
+      "path": ".zenodo.json",
+      "sha256": "06359e55831983703da2d3511177bfe26e728e8cac18ef2182755c14343b7410"
+    },
+    {
+      "path": "CITATION.cff",
+      "sha256": "073808d7b63ab0ef15b20446b2af5c509c97a2eef4fdee4de1769a7e0844a87c"
+    },
+    {
+      "path": "LICENSE-CONTENT.md",
+      "sha256": "9a4d235fbc9b2a2ec5d1c9324e79de37a3e7f9a5643a0b905b7a6d4efb777d7b"
+    },
+    {
+      "path": "README.md",
+      "sha256": "c9d39ca8563a23f112b2ae5fee18f7b4fccf73b02af630e17ff12d1b0d8e080a"
+    },
+    {
+      "path": "reference/about-research-program.html",
+      "sha256": "e92411bfa642451826fcee242a3fa22edf8c273f66c7a70eea156d8d82d1527d"
+    },
+    {
+      "path": "reference/changelog.html",
+      "sha256": "d53a36a4fe1be6b671b3acc7ba22b3b53abf82ef6a18cb2cb58d0ea537e5f7ee"
+    },
+    {
+      "path": "reference/citation-verification-audit.html",
+      "sha256": "9ff8535c294333434203d3698955b95b52d86af7e4fa62d642367ab75a0c3ddf"
+    },
+    {
+      "path": "reference/collective-aware-ai-systems.html",
+      "sha256": "19fcfb86481d222364e8530510fd6b65a488a2f644ac5596e1f6363918d6a8f2"
+    },
+    {
+      "path": "reference/collective-awareness.html",
+      "sha256": "d8cb4ee5010b366d877553770a019a9820f7f204a264e1cc0ad2ba96d0cc54dd"
+    },
+    {
+      "path": "reference/collective-state-inference.html",
+      "sha256": "bf9b78b73bbb254fa91da7e6c5c0c295f5eacb8645a7efd877f262b261722e43"
+    },
+    {
+      "path": "reference/collective-state.html",
+      "sha256": "bd8e68749660e37fb6d322ad607a127f25d5eecfd07c27dc106f7ae13ea56e6d"
+    },
+    {
+      "path": "reference/collective.html",
+      "sha256": "c33e76dc3e7e5ecceed38b4296dba3b333fb3992cfa83f653419e7cae535429c"
+    },
+    {
+      "path": "reference/composition-models.html",
+      "sha256": "39b157f0eabb8075e42e281750c68db3b94f88e1ec5b51d026cd6bbce95b0bba"
+    },
+    {
+      "path": "reference/edition-0.1-archival-release.html",
+      "sha256": "934877d145583018eaa0c724002cb2805f7c461a4f9ae5b18c6bfd36238866a4"
+    },
+    {
+      "path": "reference/editorial-citation-policy.html",
+      "sha256": "da25ba40bd461ba2ceeb37a586a2220de6c7b77459ccc5c5bed40053ea238504"
+    },
+    {
+      "path": "reference/emergence.html",
+      "sha256": "f9b145f637704dd210774fbcde12bea72f93da1a26f49f68ddda19116fd32b65"
+    },
+    {
+      "path": "reference/observable-evidence.html",
+      "sha256": "d62142e34db6344003f1fdc9063073c436a1a68c1fe9ff7cb6a4d8df64490b5b"
+    },
+    {
+      "path": "reference/reuse-licensing.html",
+      "sha256": "56e041ebd95e76db0fbabcceb775473e43a5d6d6a67bd3dd4f837c68835e179d"
+    },
+    {
+      "path": "reference/scholarly-feedback.html",
+      "sha256": "08b30ac72400291ef6f62a9edc417e4e3941dfd28aa55e1debe38779ac831421"
+    },
+    {
+      "path": "reference/scholarly-sources.html",
+      "sha256": "5e1cabab64a7d0bdae0a68e913de443e9f2f22d8096d9b036d9aa518e0498f32"
+    },
+    {
+      "path": "reference/uncertainty-in-csi.html",
+      "sha256": "6a9c664983b88806641bf049652e830c365d9ed3dbc23b608b537f731a774f9e"
+    },
+    {
+      "path": "reference/validation.html",
+      "sha256": "b74d2dd1eb65c2c516cb649141ceb4be69c13beca8d3d064df808e2918c1c631"
+    }
+  ]
+}
