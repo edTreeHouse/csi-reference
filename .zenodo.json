@@ -24,6 +24,11 @@
       "identifier": "https://collectivestateinference.org/reference/",
       "relation": "isSupplementTo",
       "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.21701697",
+      "relation": "isIdenticalTo",
+      "scheme": "doi"
     }
   ]
 }
