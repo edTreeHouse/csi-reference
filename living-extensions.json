@@ -1,0 +1,18 @@
+{
+  "description": "Living CSI Reference articles added after the fixed Edition 0.1 archival release. These records are maintained on main and are not covered by the Edition 0.1 DOI or checksum manifest.",
+  "canonical_reference": "https://collectivestateinference.org/reference/",
+  "extensions": [
+    {
+      "id": "RA-011",
+      "title": "The Ground Truth Problem in Collective-State Inference",
+      "version": "0.1",
+      "status": "methodological draft; Paper 2 aligned; awaiting empirical validation",
+      "canonical_url": "https://collectivestateinference.org/reference/ground-truth-problem.html",
+      "source": "reference/ground-truth-problem.html",
+      "bibtex": "reference/citations/ra-011-ground-truth-problem.bib",
+      "ris": "reference/citations/ra-011-ground-truth-problem.ris",
+      "included_in_archived_edition": false,
+      "doi": null
+    }
+  ]
+}
