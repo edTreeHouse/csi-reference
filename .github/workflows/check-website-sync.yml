@@ -1,0 +1,40 @@
+name: Check living Reference synchronization
+
+on:
+  pull_request:
+    paths:
+      - "reference/**"
+      - "scripts/check-website-sync.sh"
+      - ".github/workflows/check-website-sync.yml"
+  push:
+    branches: [main]
+    paths:
+      - "reference/**"
+      - "scripts/check-website-sync.sh"
+      - ".github/workflows/check-website-sync.yml"
+  schedule:
+    - cron: "23 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compare-living-reference:
+    name: Compare governed source with website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out governed CSI Reference
+        uses: actions/checkout@v4
+        with:
+          path: csi-reference
+
+      - name: Check out public website
+        uses: actions/checkout@v4
+        with:
+          repository: edTreeHouse/collective-state-inference-website
+          ref: main
+          path: collective-state-inference-website
+
+      - name: Compare designated living files
+        run: bash csi-reference/scripts/check-website-sync.sh csi-reference collective-state-inference-website
