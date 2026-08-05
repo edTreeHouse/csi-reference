@@ -1,0 +1,116 @@
+/* Responsive scholarly relationship map for RA-001. */
+.citation-graph--gateway {
+  margin: 3rem 0;
+  padding: clamp(1rem, 2.5vw, 1.75rem);
+  border: 1px solid rgba(126, 142, 255, .24);
+  border-radius: 1rem;
+  background: radial-gradient(circle at 50% 45%, rgba(110, 82, 220, .12), transparent 18rem), rgba(8, 14, 29, .72);
+}
+.citation-graph--gateway > h2 { margin-top: 0; }
+.citation-graph-intro { max-width: 46rem; }
+.citation-map--gateway {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-areas:
+    "manuscript manuscript framework framework"
+    "emergence evidence center validation"
+    "awareness awareness center observatory";
+  gap: 1rem 1.25rem;
+  align-items: stretch;
+  margin-top: 1.5rem;
+}
+.citation-map--gateway .citation-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 7.5rem;
+  padding: 1rem;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: .85rem;
+  background: rgba(255,255,255,.035);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.citation-map--gateway .citation-node small {
+  color: #aeb7d2;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.citation-map--gateway .citation-node strong { margin-top: .25rem; line-height: 1.3; }
+.citation-map--gateway .citation-node span { margin-top: .4rem; color: #c6cde1; font-size: .87rem; line-height: 1.45; }
+.citation-map--gateway .citation-node:hover,
+.citation-map--gateway .citation-node:focus-visible {
+  border-color: rgba(160, 138, 255, .72);
+  background: rgba(127, 95, 229, .09);
+  box-shadow: 0 12px 32px rgba(20, 14, 54, .28);
+  outline: none;
+}
+.citation-map--gateway .citation-node[aria-current="true"] {
+  border-color: rgba(170, 148, 255, .82);
+  background: linear-gradient(145deg, rgba(119, 83, 213, .22), rgba(38, 31, 82, .45));
+  box-shadow: 0 16px 42px rgba(53, 34, 110, .25);
+}
+.citation-map--gateway .citation-node[aria-current="true"]::after {
+  content: "Current article";
+  position: absolute;
+  top: .65rem;
+  right: .7rem;
+  color: #c7b8ff;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.node-manuscript { grid-area: manuscript; }
+.node-emergence { grid-area: emergence; }
+.node-evidence { grid-area: evidence; }
+.node-center { grid-area: center; }
+.node-validation { grid-area: validation; }
+.node-awareness { grid-area: awareness; }
+.node-framework { grid-area: framework; }
+.node-observatory { grid-area: observatory; }
+.citation-relationship { margin: 1.25rem 0 0; color: #aeb7d2; font-size: .85rem; }
+@media (min-width: 761px) {
+  .citation-map--gateway .node-manuscript::after,
+  .citation-map--gateway .node-emergence::after,
+  .citation-map--gateway .node-evidence::after,
+  .citation-map--gateway .node-awareness::after,
+  .citation-map--gateway .node-framework::before,
+  .citation-map--gateway .node-validation::before,
+  .citation-map--gateway .node-observatory::before {
+    content: "";
+    position: absolute;
+    background: rgba(151, 127, 239, .42);
+    pointer-events: none;
+  }
+  .citation-map--gateway .node-manuscript::after { left: 50%; bottom: -1.05rem; width: 1px; height: 1.05rem; }
+  .citation-map--gateway .node-emergence::after,
+  .citation-map--gateway .node-evidence::after,
+  .citation-map--gateway .node-awareness::after { right: -1.3rem; top: 50%; width: 1.3rem; height: 1px; }
+  .citation-map--gateway .node-framework::before,
+  .citation-map--gateway .node-validation::before,
+  .citation-map--gateway .node-observatory::before { left: -1.3rem; top: 50%; width: 1.3rem; height: 1px; }
+}
+@media (max-width: 760px) {
+  .citation-map--gateway {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "center"
+      "manuscript"
+      "emergence"
+      "evidence"
+      "validation"
+      "awareness"
+      "framework"
+      "observatory";
+  }
+  .citation-map--gateway .citation-node { min-height: auto; }
+  .citation-map--gateway .citation-node[aria-current="true"]::after { position: static; margin-top: .65rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .citation-map--gateway .citation-node { transition: none; }
+}
