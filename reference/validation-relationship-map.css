@@ -1,0 +1,94 @@
+/* Responsive scholarly relationship map for RA-007 Validation. */
+.validation-relationship-map {
+  margin: 3rem 0;
+  padding: clamp(1rem, 2.5vw, 1.75rem);
+  border: 1px solid rgba(126, 142, 255, .24);
+  border-radius: 1rem;
+  background: radial-gradient(circle at 50% 48%, rgba(110, 82, 220, .12), transparent 19rem), rgba(8, 14, 29, .72);
+}
+.validation-relationship-map > h2 { margin-top: 0; }
+.validation-map-intro { max-width: 48rem; }
+.validation-map {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-areas:
+    "construct groundtruth uncertainty"
+    "evidence center framework"
+    "baselines center observatory";
+  gap: 1rem 1.25rem;
+  margin-top: 1.5rem;
+}
+.validation-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 7.4rem;
+  padding: 1rem;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: .85rem;
+  background: rgba(255,255,255,.035);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.validation-node small {
+  color: #aeb7d2;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.validation-node strong { margin-top: .25rem; line-height: 1.3; }
+.validation-node span { margin-top: .4rem; color: #c6cde1; font-size: .87rem; line-height: 1.45; }
+.validation-node:hover,
+.validation-node:focus-visible {
+  border-color: rgba(160, 138, 255, .72);
+  background: rgba(127, 95, 229, .09);
+  box-shadow: 0 12px 32px rgba(20, 14, 54, .28);
+  outline: none;
+}
+.validation-node[aria-current="true"] {
+  border-color: rgba(170, 148, 255, .82);
+  background: linear-gradient(145deg, rgba(119, 83, 213, .22), rgba(38, 31, 82, .45));
+  box-shadow: 0 16px 42px rgba(53, 34, 110, .25);
+}
+.validation-node[aria-current="true"]::after {
+  content: "Current article";
+  position: absolute;
+  top: .65rem;
+  right: .7rem;
+  color: #c7b8ff;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.node-construct { grid-area: construct; }
+.node-groundtruth { grid-area: groundtruth; }
+.node-uncertainty { grid-area: uncertainty; }
+.node-evidence { grid-area: evidence; }
+.node-center { grid-area: center; }
+.node-framework { grid-area: framework; }
+.node-baselines { grid-area: baselines; }
+.node-observatory { grid-area: observatory; }
+.validation-map-note { margin: 1.25rem 0 0; color: #aeb7d2; font-size: .85rem; }
+@media (max-width: 760px) {
+  .validation-map {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "center"
+      "construct"
+      "evidence"
+      "groundtruth"
+      "uncertainty"
+      "baselines"
+      "framework"
+      "observatory";
+  }
+  .validation-node { min-height: auto; }
+  .validation-node[aria-current="true"]::after { position: static; margin-top: .65rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .validation-node { transition: none; }
+}
