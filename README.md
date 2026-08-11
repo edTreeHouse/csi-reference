@@ -30,7 +30,7 @@ This public repository preserves the fixed Edition 0.1 scholarly record and also
 
 The `main` branch may contain clearly identified living updates that postdate the fixed Edition 0.1 release. These changes do not alter the tagged archival release, its checksum manifest, or DOI.
 
-As of August 11, 2026, the living Reference is aligned with the submitted foundational manuscript submitted to *Computational and Mathematical Organization Theory*. RA-001 is at Version 0.4 and reflects the current canonical definition: collective states are defined at the level of the collective without assuming that every valid collective construct must be empirically irreducible to aggregation. Composition-model fit remains the governing rule, and non-reducibility is treated as an empirical question.
+As of August 11, 2026, the living Reference is aligned with the foundational manuscript submitted to *Computational and Mathematical Organization Theory*. RA-001 is at Version 0.4 and reflects the current canonical definition: collective states are defined at the level of the collective without assuming that every valid collective construct must be empirically irreducible to aggregation. Composition-model fit remains the governing rule, and non-reducibility is treated as an empirical question.
 
 Current manuscript status: **Submitted — Technical Check**. The work has not yet entered peer review and has not completed empirical validation.
 
