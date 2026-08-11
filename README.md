@@ -4,7 +4,7 @@
 
 Canonical, versioned scholarly reference for Collective-State Inference (CSI).
 
-This public repository preserves the fixed Edition 0.1 scholarly record corresponding to the living CSI Reference at https://collectivestateinference.org/reference/.
+This public repository preserves the fixed Edition 0.1 scholarly record and also tracks clearly identified living Reference updates that postdate the archival release at https://collectivestateinference.org/reference/.
 
 ## Archived release
 
@@ -15,7 +15,7 @@ This public repository preserves the fixed Edition 0.1 scholarly record correspo
 
 ## Included materials
 
-- RA-001 through RA-010, each at Version 0.2
+- RA-001 through RA-010, each at Version 0.2 in the fixed Edition 0.1 release
 - About the CSI Research Program
 - Editorial and Citation Policy
 - Scholarly Sources registry
@@ -26,9 +26,15 @@ This public repository preserves the fixed Edition 0.1 scholarly record correspo
 - Scholarly Feedback and Corrections procedure
 - Machine-readable citation, Zenodo, manifest, and checksum metadata
 
-## Living extensions after Edition 0.1
+## Living Reference after Edition 0.1
 
-The `main` branch may contain clearly identified living extensions that postdate the fixed Edition 0.1 release. These additions do not alter the tagged archival release, its checksum manifest, or DOI.
+The `main` branch may contain clearly identified living updates that postdate the fixed Edition 0.1 release. These changes do not alter the tagged archival release, its checksum manifest, or DOI.
+
+As of August 11, 2026, the living Reference is aligned with the RC7 foundational manuscript submitted to *Computational and Mathematical Organization Theory*. RA-001 is at Version 0.4 and reflects the current canonical definition: collective states are defined at the level of the collective without assuming that every valid collective construct must be empirically irreducible to aggregation. Composition-model fit remains the governing rule, and non-reducibility is treated as an empirical question.
+
+Current manuscript status: **Submitted — Technical Check**. The work has not yet entered peer review and has not completed empirical validation.
+
+Living extensions also include:
 
 - **RA-011 — The Ground Truth Problem in Collective-State Inference**, Version 0.1
   - Status: methodological draft; Paper 2 aligned; awaiting empirical validation
@@ -40,7 +46,7 @@ See `living-extensions.json` for the machine-readable inventory of post-Edition 
 
 ## Research status
 
-Edition 0.1 is a foundational conceptual release. It has not yet completed peer review or empirical validation.
+Edition 0.1 remains a foundational conceptual archival release. The living Reference has advanced beyond that snapshot, but CSI has not yet completed peer review or empirical validation.
 
 ## License
 
