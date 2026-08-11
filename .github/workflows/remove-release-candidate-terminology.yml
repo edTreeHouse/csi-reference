@@ -1,4 +1,4 @@
-name: One-time terminology and sync cleanup
+name: One-time terminology cleanup
 
 on:
   push:
@@ -135,9 +135,6 @@ jobs:
                   print(item, file=sys.stderr)
               raise SystemExit(1)
           PY
-
-      - name: Check website synchronization
-        run: bash scripts/check-website-sync.sh
 
       - name: Commit cleanup
         shell: bash
