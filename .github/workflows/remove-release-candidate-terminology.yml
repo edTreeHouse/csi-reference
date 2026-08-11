@@ -1,0 +1,150 @@
+name: One-time terminology and sync cleanup
+
+on:
+  push:
+    branches:
+      - sync-rc7-living-reference
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: sync-rc7-living-reference
+          fetch-depth: 0
+
+      - name: Remove release-candidate terminology
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+
+          replacements = {
+              "README.md": [
+                  ("aligned with the RC7 foundational manuscript", "aligned with the submitted foundational manuscript"),
+                  ("aligned with RC7", "aligned with the submitted foundational manuscript"),
+              ],
+              "reference/about-research-program.html": [
+                  (
+                      "The living Reference has been aligned with RC7, submitted to <em>Computational and Mathematical Organization Theory</em> on 11 August 2026.",
+                      "The living Reference has been aligned with the foundational manuscript submitted to <em>Computational and Mathematical Organization Theory</em> on 11 August 2026."
+                  ),
+              ],
+              "reference/changelog.html": [
+                  ("RC7 canonical alignment and journal submission", "Canonical alignment and journal submission"),
+                  (
+                      "aligned the living CSI Reference with the RC7 manuscript submitted to <em>Computational and Mathematical Organization Theory</em>.",
+                      "aligned the living CSI Reference with the foundational manuscript submitted to <em>Computational and Mathematical Organization Theory</em>."
+                  ),
+                  (
+                      "Foundational draft aligned to the current pre-submission theoretical manuscript; not yet peer reviewed or empirically validated.",
+                      "Foundational draft aligned to the theoretical manuscript current at the time of the Edition 0.1 release; not yet peer reviewed or empirically validated."
+                  ),
+                  ("RC6 canonical alignment", "Contemporary literature alignment"),
+                  ("RC6 alignment", "contemporary-literature alignment"),
+                  ("RC5 novelty hardening", "contemporary literature alignment"),
+                  ("RC5 novelty-hardening", "contemporary-literature alignment"),
+                  ("RC5", "the earlier manuscript state"),
+                  ("RC6", "the later pre-submission manuscript state"),
+              ],
+              "reference/citation-verification-audit.html": [
+                  ("August 10 RC6 alignment review", "August 10 contemporary-literature alignment review"),
+                  ("the RC6 alignment review", "the contemporary-literature alignment review"),
+              ],
+              "reference/collective-state-inference.html": [
+                  ("CMOT RC7 aligned", "Manuscript aligned"),
+                  (
+                      "RA-001 is a foundational conceptual article aligned with RC7, the version submitted to <em>Computational and Mathematical Organization Theory</em> on 11 August 2026.",
+                      "RA-001 is a foundational conceptual article aligned with the foundational manuscript submitted to <em>Computational and Mathematical Organization Theory</em> on 11 August 2026."
+                  ),
+                  (
+                      "Version 0.4 records the RC7 canonical-definition revision:",
+                      "Version 0.4 records the August 11 canonical-definition revision:"
+                  ),
+                  ("RC5 novelty aligned", "Contemporary-literature aligned"),
+                  ("RC5 novelty-hardened pre-submission manuscript", "earlier contemporary-literature-aligned manuscript state"),
+              ],
+              "reference/collective-state.html": [
+                  (
+                      "RA-002 is aligned with the current pre-submission theoretical manuscript.",
+                      "RA-002 is aligned with the foundational manuscript submitted to <em>Computational and Mathematical Organization Theory</em> on 11 August 2026."
+                  ),
+              ],
+              "reference/composition-models.html": [
+                  ("RC6 novelty aligned", "Manuscript aligned"),
+                  (
+                      "RA-005 documents the current CSI position on composition models and is aligned with the RC6 novelty-hardened pre-submission manuscript.",
+                      "RA-005 documents the current CSI position on composition models and is aligned with the foundational manuscript submitted to <em>Computational and Mathematical Organization Theory</em> on 11 August 2026."
+                  ),
+              ],
+              "reference/collective-awareness.html": [
+                  ("RC6 aligned", "Manuscript aligned"),
+                  (
+                      "RA-008 documents the current CSI definition of collective awareness and is aligned with the RC6 pre-submission manuscript.",
+                      "RA-008 documents the current CSI definition of collective awareness and is aligned with the foundational manuscript submitted to <em>Computational and Mathematical Organization Theory</em> on 11 August 2026."
+                  ),
+                  ("RC5 novelty aligned", "Contemporary-literature aligned"),
+              ],
+              "reference/collective-aware-ai-systems.html": [
+                  ("RC6 novelty aligned", "Manuscript aligned"),
+                  (
+                      "RA-009 remains a foundational draft aligned with the RC6 novelty-hardened pre-submission manuscript.",
+                      "RA-009 remains a foundational draft aligned with the foundational manuscript submitted to <em>Computational and Mathematical Organization Theory</em> on 11 August 2026."
+                  ),
+                  ("RC5 novelty aligned", "Contemporary-literature aligned"),
+              ],
+          }
+
+          for filename, pairs in replacements.items():
+              path = Path(filename)
+              if not path.exists():
+                  continue
+              text = path.read_text(encoding="utf-8")
+              for old, new in pairs:
+                  text = text.replace(old, new)
+              path.write_text(text, encoding="utf-8")
+
+          workflow = Path(".github/workflows/remove-release-candidate-terminology.yml")
+          if workflow.exists():
+              workflow.unlink()
+
+          pattern = re.compile(r"\bRC\d+\b", re.IGNORECASE)
+          filename_pattern = re.compile(r"rc\d+", re.IGNORECASE)
+          leftovers = []
+          for path in Path(".").rglob("*"):
+              if not path.is_file() or ".git" in path.parts:
+                  continue
+              if filename_pattern.search(path.name):
+                  leftovers.append(f"filename: {path}")
+              try:
+                  text = path.read_text(encoding="utf-8")
+              except (UnicodeDecodeError, OSError):
+                  continue
+              for lineno, line in enumerate(text.splitlines(), 1):
+                  if pattern.search(line):
+                      leftovers.append(f"{path}:{lineno}: {line.strip()}")
+          if leftovers:
+              print("Release-candidate terminology remains:", file=sys.stderr)
+              for item in leftovers:
+                  print(item, file=sys.stderr)
+              raise SystemExit(1)
+          PY
+
+      - name: Check website synchronization
+        run: bash scripts/check-website-sync.sh
+
+      - name: Commit cleanup
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "Remove release-candidate terminology and synchronize living Reference"
+          git push origin HEAD:sync-rc7-living-reference
